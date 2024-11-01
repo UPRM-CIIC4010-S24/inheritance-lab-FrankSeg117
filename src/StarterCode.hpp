@@ -130,12 +130,12 @@ class Art {
 //////////////////////////////////////////////////////////////////////////
 ///////////////////////////*Painting Class*///////////////////////////////
 //////////////////////////////////////////////////////////////////////////
-class Painting {
+class Painting : public Art{
   private:
-    string name;
-    Artist artist;
-    Style style;
-    int year;
+    // string name;
+    // Artist artist;
+    // Style style;
+    // int year;
     bool replica;
 
   public:
@@ -143,26 +143,26 @@ class Painting {
     Painting(){};
 
     // Parameterized Constructor
-    Painting(string name, Artist artist, Style style, int year, bool replica) {
-        this->name = name;
-        this->artist = artist;
-        this->style = style;
-        this->year = year;
+    Painting(string name, Artist artist, Style style, int year, bool replica) : Art( name,  artist,  style, year){
+        // this->name = name;
+        // this->artist = artist;
+        // this->style = style;
+        // this->year = year;
         this->replica = replica;
     }
 
     // Getters
-    string getName() const { return name; }
-    Artist getArtist() const { return artist; }
-    Style getStyle() const { return this->style; }
-    int getYear() const { return year; }
+    // string getName() const { return name; }
+    // Artist getArtist() const { return artist; }
+    // Style getStyle() const { return this->style; }
+    // int getYear() const { return year; }
     bool isReplica() const { return replica; }
 
     // Setters
-    void setName(string name) { this->name = name; }
-    void setArtist(Artist artist) { this->artist = artist; }
-    void setStyle(Style style) { this->style = style; }
-    void setYear(int year) { this->year = year; }
+    // void setName(string name) { this->name = name; }
+    // void setArtist(Artist artist) { this->artist = artist; }
+    // void setStyle(Style style) { this->style = style; }
+    // void setYear(int year) { this->year = year; }
     void setReplica(bool isReplica) { this->replica = isReplica; }
 
     // Methods
@@ -172,6 +172,7 @@ class Painting {
      * and end (inclusive).
      */
     static int countPaintings(const vector<Painting *> &collection, Style style, int start, int end);
+    int appraise() {}
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -185,12 +186,12 @@ enum Material {
     METAL
 };
 
-class Sculpture {
+class Sculpture : public Art{
   private:
-    string name;
-    Artist artist;
-    Style style;
-    int year;
+    // string name;
+    // Artist artist;
+    // Style style;
+    // int year;
     Material material;
 
   public:
@@ -198,26 +199,26 @@ class Sculpture {
     Sculpture(){};
 
     // Parameterized Constructor
-    Sculpture(string name, Artist artist, Style style, int year, Material material) {
-        this->name = name;
-        this->artist = artist;
-        this->style = style;
-        this->year = year;
+    Sculpture(string name, Artist artist, Style style, int year, Material material) : Art( name,  artist,  style,  year){
+        // this->name = name;
+        // this->artist = artist;
+        // this->style = style;
+        // this->year = year;
         this->material = material;
     }
 
     // Getters
-    string getName() const { return name; }
-    Artist getArtist() const { return artist; }
-    Style getStyle() const { return this->style; }
-    int getYear() const { return year; }
+    // string getName() const { return name; }
+    // Artist getArtist() const { return artist; }
+    // Style getStyle() const { return this->style; }
+    // int getYear() const { return year; }
     Material getMaterial() const { return material; }
 
     // Setters
-    void setName(string name) { this->name = name; }
-    void setArtist(Artist artist) { this->artist = artist; }
-    void setStyle(Style style) { this->style = style; }
-    void setYear(int year) { this->year = year; }
+    // void setName(string name) { this->name = name; }
+    // void setArtist(Artist artist) { this->artist = artist; }
+    // void setStyle(Style style) { this->style = style; }
+    // void setYear(int year) { this->year = year; }
     void setMaterial(Material material) { this->material = material; }
 
     // Methods
@@ -227,4 +228,6 @@ class Sculpture {
      * determine whether an Art piece is a Sculpture or not .
      */
     static vector<Sculpture *> segregateSculptures(const vector<Art *> &collection);
+
+    int appraise() {}
 };

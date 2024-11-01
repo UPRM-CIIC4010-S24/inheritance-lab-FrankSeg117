@@ -15,7 +15,16 @@
  * Hint: Remember that if you want to override a method you must declare it first on the header file of the subclass.
  * */
 int Painting::appraise() {
-    return -1;
+    if(!isReplica() && getArtist().getFameScore()>8){
+            return 1500*1.66;
+    }
+    else if(!isReplica() && getArtist().getFameScore()>=5){
+        return 1500*1.37;
+    }
+    else if(!isReplica()){
+        return 1500*1.15;
+    }    
+    return 1500;
 }
 
 /* Exercise 3B
@@ -33,5 +42,14 @@ int Painting::appraise() {
  * Hint: Remember that if you want to override a method you must declare it first on the header file of the subclass.
  */
 int Sculpture::appraise() {
-    return -1;
+    if((getMaterial() == MARBLE) && getArtist().getFameScore()>=5){
+            return 1500*1.69;
+    }
+    else if((getMaterial() == METAL) && getArtist().getFameScore()>5){
+        return 1500*1.45;
+    }
+    else if((getMaterial() != PLASTIC) && getArtist().getFameScore()>3){
+        return 1500*1.12;
+    }    
+    return 1500;
 }

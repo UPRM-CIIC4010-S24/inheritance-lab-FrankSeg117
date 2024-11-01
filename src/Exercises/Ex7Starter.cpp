@@ -6,5 +6,11 @@
  * and end (inclusive).
  */
 int Painting::countPaintings(const vector<Painting *> &collection, Style style, int start, int end) {
-    return -1;
+    int res = 0;
+    for(Painting* p : collection){
+        if(p->getStyle().equals(style) && p->getYear()>=start && p->getYear() < end){
+            res++;
+        }
+    }
+    return res;
 }
